@@ -101,3 +101,47 @@ nav h4 {
     font-size: 1.4vw;
     font-weight: 100;
 }
+
+#page2 {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(246, 241, 241);
+    position: relative;
+    padding: 5vw 2.8vw;
+}
+
+#page2-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 1.2vw;
+    margin-bottom: 1vw;
+    border-bottom: 1px solid #00000092;
+}
+
+#page2-top h3 {
+    font-size: 1.7vw;
+    font-weight: 500;
+    width: 26%;
+    /* background-color: red; */
+}
+
+#page2-top h4 {
+    font-size: 1.7vw;
+    font-weight: 500;
+}
+
+.elem {
+    overflow: hidden;
+}
+
+.elem h1 {
+    /* background-color: blue; */
+    font-size: 4.1vw;
+    font-weight: 500;
+}
+
+#shifted-h1 span {
+    margin-left: 2.9ch; /* Adjust the value as needed */
+}
+
