@@ -61,7 +61,6 @@ function page2Animation() {
             scroller: "#main",
             start: "top 80%", // Adjusted start value
             end: "top 53%", // Adjusted end value
-            markers: true, // new comment for markers
             scrub: 2
         }
     });
