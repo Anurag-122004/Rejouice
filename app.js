@@ -1,28 +1,38 @@
-
-
-function lenisAnimation() {
-    let tl = gsap.timeline() 
-
-    tl.to(".animated-element", {
+function locoscroll() {
         
-    })
+    gsap.registerPlugin(ScrollTrigger);
 
-    //lenis----------------------
-    const lenis = new Lenis()
+    // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 
-    lenis.on('scroll', (e) => {
-    console.log(e)
-    })
+    const locoScroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true
+    });
+    // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+    locoScroll.on("scroll", ScrollTrigger.update);
 
-    function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-    }
+    // tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
+    ScrollTrigger.scrollerProxy("#main", {
+    scrollTop(value) {
+        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+    getBoundingClientRect() {
+        return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+    },
+    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+    pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+    });
 
-    requestAnimationFrame(raf)
+
+    // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+    // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+    ScrollTrigger.refresh();
+
 }
 
-lenisAnimation();
+locoscroll();
 function mouseEffect() {
     let page1Content = document.querySelector("#page1-content");
     let cursor = document.querySelector("#cursor");
@@ -52,15 +62,17 @@ page1Content.addEventListener("mouseleave", () => {
 mouseEffect();
 
 function page2Animation() {
-    gsap.from(".elem #shifted-h1", {
-        y: -120,
+    gsap.from(".elem h1", {
+        y: 120,
         stagger: 0.25,
-        duration: 1,
+        duration: 4,
+        // ease:"back.out",
         scrollTrigger: {
             trigger: "#page2",
             scroller: "#main",
-            start: "top 80%", // Adjusted start value
-            end: "top 53%", // Adjusted end value
+            start: "top 45%", // Adjusted start value
+            end: "top 40%", // Adjusted end value
+            // markers: true,
             scrub: 2
         }
     });
