@@ -176,3 +176,103 @@ nav h4 {
     font-size: 4vw;
     font-weight: 500;
 }
+
+#page3-elements {
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: red; */
+    margin-top: 8vw;
+}
+
+#page3-elements .box {
+    height: 100%;
+    width: 32.5%;
+    /* background-color: black; */
+    position: relative;
+}
+
+#page3-elements .box video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#page3-elements .box img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    transition: all ease 1.1s;
+    object-position: center;
+}
+
+#page3-elements .box:hover img {
+    opacity: 0;
+}
+
+#page4 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+#page4 video {
+    height: 100%;
+}
+
+#page4 svg {
+    position: absolute;
+    height: 62%;
+}
+
+#page5 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    padding:  4vw 0;
+}
+
+#page5 h1 {
+    font-size: 9vw;
+    font-weight: 100;
+    border-bottom: 1px solid #000;
+    width: 96%;
+    margin-left: 2%;
+}
+
+#swiperdiv {
+    height: 60vh;
+    width: 100%;
+    position: relative;
+    /* background-color: red; */
+    margin-top: -2.5%;
+}
+
+.swiper {
+    width: 130%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 19%;
+    object-fit: cover;
+    cursor: grab;
+}

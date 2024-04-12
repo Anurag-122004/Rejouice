@@ -37,11 +37,11 @@ function mouseEffect() {
     let page1Content = document.querySelector("#page1-content");
     let cursor = document.querySelector("#cursor");
 
-page1Content.addEventListener("mousemove", (dets) => {
-    gsap.to(cursor, {
-        x: dets.x,
-        y:dets.y
-    })
+    page1Content.addEventListener("mousemove", (dets) => {
+        gsap.to(cursor, {
+            x: dets.x,
+            y:dets.y
+        })
 })
 
 page1Content.addEventListener("mouseenter", () => {
@@ -79,3 +79,17 @@ function page2Animation() {
 }
 
 page2Animation();
+
+function imageSlider () {
+    let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay : 2000,
+            disableOnInteraction: false,
+        }
+    });
+}
+
+imageSlider();
