@@ -93,3 +93,31 @@ function imageSlider () {
 }
 
 imageSlider();
+
+let tl = gsap.timeline();
+
+tl.from("#loader h3",{
+    x:60,
+    opacity:0,
+    duration:1.1,
+    stagger: 0.1,
+});
+
+tl.to("#loader h3",{
+    x:-30,
+    opacity:0,
+    duration:1.1,
+    stagger: 0.1,
+});
+
+tl.to("#loader",{
+    opacity:0,
+    display:"none",
+});
+
+tl.from("#page1-content h1 span", {
+    y:100,
+    opacity:0,
+    stagger:0.1,
+    duration:0.5,
+});

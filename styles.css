@@ -77,6 +77,7 @@ html, body  {
 
 #page1-content h1 span {
     font-family: rejouice;
+    display: inline-block;
 }
 
 #j, #i {
@@ -275,4 +276,23 @@ nav h4 {
     width: 19%;
     object-fit: cover;
     cursor: grab;
+}
+
+#loader {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    gap: 10px;
+}
+
+#loader h3 {
+    font-size: 1.7vw;
+    font-weight: 100;
 }
